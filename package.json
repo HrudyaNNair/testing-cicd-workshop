@@ -10,19 +10,38 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
+    "audit-ci": "^7.1.0",
+    "eslint": "^8.0.0",
     "jest": "^30.2.0",
     "supertest": "^7.1.4"
-  }, "scripts": {
+  },
+  "scripts": {
     "start": "node app.js",
     "test": "jest",
     "test:unit": "jest tests/unit.test.js",
     "test:integration": "jest tests/integration.test.js",
-    "test:coverage": "jest --coverage"
-  },"jest": {
+    "test:coverage": "jest --coverage",
+    "lint": "eslint *.js tests/*.js",
+    "lint:fix": "eslint *.js tests/*.js --fix"
+  },
+  "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
       "*.js",
       "!node_modules/**"
     ]
+  },"reporters": [
+      "default",
+      ["jest-html-reporter",{
+        "pageTitle": "Calculator API Test Report",
+        "outputPath":"test-report.html"
+      }],
+      ["jest-junit",{
+        "outputDirectory": "test-results",
+        "outputName": "junit.xml"
+      }]
+    ],
+    "coverageReporters": ["text","lcov","html"]
   }
-}
+
+  
