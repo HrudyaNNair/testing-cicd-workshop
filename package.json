@@ -34,7 +34,7 @@
       "default",
       ["jest-html-reporter",{
         "pageTitle": "Calculator API Test Report",
-        "outputPath":"D:/ILP2025_01_SDET_WS_16082025/testing-cicd-workshop/test-report.html"
+        "outputPath":"test-report.html"
       }],
       ["jest-junit",{
         "outputDirectory": "test-results",
